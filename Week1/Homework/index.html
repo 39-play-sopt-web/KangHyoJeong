@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/side-nav.css">
 </head>
 <body>
+    <!-- 헤더 -->
     <header class="header">
         <div class="header__left">
             <img class="header__avatar" src="./assets/images/avatar.webp" alt="효정's 아바타">
@@ -30,5 +32,41 @@
             </ul>
         </nav>
     </header>
+
+    <div class="layout">
+        <!-- 내비게이션(사이드목차) -->
+        <nav class="side-nav" aria-label="목차">
+            <ul>
+                <li>
+                    <a href="#photo-dump">포토덤프</a>
+                </li>
+                <li>
+                    <a href="#things-i-like">좋아하는 것</a>
+                </li>
+                <li>
+                    <a href="#my-interest">내 관심사</a>
+                </li>
+                <li>
+                    <a href="#to-webtory">To.웹토리</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 본문 -->
+        <main>
+            <section id="photo-dump">
+                <h2>📸포토덤프</h2>
+            </section>
+            <section id="things-i-like">
+                <h2>💘기니휘기 보고가세요</h2>
+            </section>
+            <section id="my-interest">
+                <h2>🐾내 관심사</h2>
+            </section>
+            <section id="to-webtory">
+                <h2>🐿️To.웹토리</h2>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
