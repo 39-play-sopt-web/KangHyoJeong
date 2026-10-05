@@ -1,0 +1,36 @@
+.gini {
+    display: flex;
+    overflow: hidden;
+    padding: 16px 0;
+}
+
+.gini__list {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    padding-right: 16px; 
+    animation: gini-scroll 40s linear infinite;
+}
+
+.gini:hover .gini__list {
+    animation-play-state: paused;
+}
+
+.gini__list img {
+    width: auto;
+    height: 200px;
+    max-width: none;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gini__list img:hover{
+    transform: scale(1.1);
+}
+
+@keyframes gini-scroll {
+    to {
+        transform: translateX(-100%);
+    }
+}
