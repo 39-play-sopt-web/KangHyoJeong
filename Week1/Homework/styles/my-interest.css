@@ -1,0 +1,70 @@
+.my-interest__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.my-interest__card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.my-interest__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.my-interest__image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.my-interest__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+
+.my-interest__title {
+    font-size: 18px;
+}
+
+.my-interest__actions {
+    display: flex;
+    gap: 8px;
+}
+
+.my-interest__button {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.my-interest__button--like {
+    background-color: #fff9fe;
+    border: 1px solid #e7179e;
+    color: #e7179e;
+}
+
+.my-interest__button--dislike {
+    background-color: #ffffff;
+    border: 1px solid #383939;
+    color: #383939;
+}
+
+.my-interest__button--like:hover {
+    background-color: #fe89d5;
+    color: #fcf9f9;
+}
+
+.my-interest__button--dislike:hover {
+    background-color: #9a9a9a;
+    color: #ffffff;
+}
