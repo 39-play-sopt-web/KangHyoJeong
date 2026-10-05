@@ -1,0 +1,13 @@
+.to-webtory__letter{
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.to-webtory__text::before{
+    content: "🧩";
+}
+
+.to-webtory__text::after{
+    content: "😻";
+}
