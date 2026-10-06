@@ -1,0 +1,23 @@
+:root {
+    --header-height: 64px;
+
+    --color-bg: #fcfcfc;
+    --color-text: #222222;
+    --color-border: #e5e5e5;
+}
+
+html {
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    padding-top: var(--header-height); 
+    font-family: "Pretendard", sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+}

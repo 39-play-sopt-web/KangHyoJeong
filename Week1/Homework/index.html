@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효정's blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/side-nav.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/photo-dump.css">
+    <link rel="stylesheet" href="./styles/things-i-like.css">
+    <link rel="stylesheet" href="./styles/my-interest.css">
+    <link rel="stylesheet" href="./styles/to-webtory.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header__left">
+            <img class="header__avatar" src="./assets/images/avatar.webp" alt="">
+        </div>
+        <h1 class="header__title">효정's 블로그</h1>
+        <nav class="header__right" aria-label="소셜 링크">
+            <ul class="header__social">
+                <li>
+                    <a href="https://github.com/ahyohyo" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/icons/github-logo-icon.svg" alt="깃허브 바로가기">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://zzazani.tistory.com" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/icons/tistory-logo-icon.svg" alt="티스토리 블로그 바로가기">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout">
+        <!-- 내비게이션(사이드목차) -->
+        <nav class="side-nav" aria-label="목차">
+            <ul>
+                <li>
+                    <a href="#photo-dump">포토덤프</a>
+                </li>
+                <li>
+                    <a href="#things-i-like">좋아하는 것</a>
+                </li>
+                <li>
+                    <a href="#my-interest">내 관심사</a>
+                </li>
+                <li>
+                    <a href="#to-webtory">To.웹토리</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 본문 -->
+        <main>
+            <section id="photo-dump">
+                <h2>📸포토덤프</h2>
+                <div class="grid__container">
+                    <figure class="grid__item"><img src="./assets/images/pokemon.webp" alt="뮤와 리오르"></figure>
+                    <figure class="grid__item"><img src="./assets/images/buddys1.webp" alt="버디즈 데모데이 부스"></figure>
+                    <figure class="grid__item"><img src="./assets/images/buddys2.webp" alt="버디즈 데모데이 단체사진"></figure>
+                    <figure class="grid__item"><img src="./assets/images/playsopt.webp" alt="웹토리 ot 단체사진"></figure>
+                    <figure class="grid__item"><img src="./assets/images/tired-meme.webp" alt="피곤한 밈"></figure>
+                    <figure class="grid__item"><img src="./assets/images/ramen.webp" alt="라아멘"></figure>
+                </div>
+            </section>
+            <section id="things-i-like">
+                <h2>💘기니휘기 보고가세요</h2>
+                <div class="gini">
+                    <div class="gini__list">
+                        <img src="./assets/images/gini/gini01.webp" alt="">
+                        <img src="./assets/images/gini/gini02.webp" alt="">
+                        <img src="./assets/images/gini/gini03.webp" alt="">
+                        <img src="./assets/images/gini/gini04.webp" alt="">
+                        <img src="./assets/images/gini/gini05.webp" alt="">
+                        <img src="./assets/images/gini/gini06.webp" alt="">
+                        <img src="./assets/images/gini/gini07.webp" alt="">
+                        <img src="./assets/images/gini/gini08.webp" alt="">
+                        <img src="./assets/images/gini/gini09.webp" alt="">
+                        <img src="./assets/images/gini/gini10.webp" alt="">
+                        <img src="./assets/images/gini/gini11.webp" alt="">
+                    </div>
+                    <div class="gini__list" aria-hidden="true">
+                        <img src="./assets/images/gini/gini01.webp" alt="">
+                        <img src="./assets/images/gini/gini02.webp" alt="">
+                        <img src="./assets/images/gini/gini03.webp" alt="">
+                        <img src="./assets/images/gini/gini04.webp" alt="">
+                        <img src="./assets/images/gini/gini05.webp" alt="">
+                        <img src="./assets/images/gini/gini06.webp" alt="">
+                        <img src="./assets/images/gini/gini07.webp" alt="">
+                        <img src="./assets/images/gini/gini08.webp" alt="">
+                        <img src="./assets/images/gini/gini09.webp" alt="">
+                        <img src="./assets/images/gini/gini10.webp" alt="">
+                        <img src="./assets/images/gini/gini11.webp" alt="">
+                    </div>
+                </div>
+            </section>
+            <section id="my-interest">
+                <h2>🐾내 관심사</h2>
+                <div class="my-interest__list">
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/rakko.webp" alt="먼작귀 랏코">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">랏코</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/book.webp" alt="목소리가 들린다">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">읽고 있는 책</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/drama.webp" alt="미지의 서울">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">인생 드라마</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/movie.webp" alt="룩백">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">보고싶은 영화</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/gongwon.webp" alt="공원">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">나의 무기</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/shininryu.webp" alt="신인류">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">날씨의 요정</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="my-interest__card">
+                        <img class="my-interest__image" src="./assets/images/uttang-i.webp" alt="우땅이">
+                        <div class="my-interest__body">
+                            <h3 class="my-interest__title">우땅이</h3>
+                            <div class="my-interest__actions">
+                                <button type="button" class="my-interest__button my-interest__button--like">좋아요</button>
+                                <button type="button" class="my-interest__button my-interest__button--dislike">싫어요</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="to-webtory">
+                <h2>🐿️To.웹토리</h2>
+                <div class="to-webtory__letter">
+                    <p class="to-webtory__text">방가방가 웹토리~</p>
+                    <p class="to-webtory__text">만나서 반가워요, 잘 부탁드립니다!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>자기소개 페이지 끝-!</p>
+    </footer>
+</body>
+</html>
