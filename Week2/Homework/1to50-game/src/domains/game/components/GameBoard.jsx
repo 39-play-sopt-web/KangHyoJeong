@@ -14,7 +14,7 @@ export function GameBoard({ size, board, onCellClick }) {
     >
       {board.map((value, index) => (
         <NumberCell
-          key={index}
+          key={`${index}-${value}`}
           value={value}
           textClassName={CELL_TEXT[size]}
           onClick={() => onCellClick?.(index)}
