@@ -9,7 +9,7 @@ const CELL_TEXT = {
 export function GameBoard({ size, board, onCellClick }) {
   return (
     <div
-      className="grid w-full max-w-[482px] gap-4"
+      className="grid w-full max-w-120.5 gap-4"
       style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
     >
       {board.map((value, index) => (
