@@ -11,10 +11,10 @@ const TABS = [
 export function Header({ tab, onTabChange, level, onLevelChange, time }) {
   return (
     <header className="sticky top-0 z-10 h-14 bg-surface shadow-header">
-      <div className="grid h-full grid-cols-3 items-center px-4">
+      <div className="relative flex h-full items-center justify-between px-4">
         <h1 className="text-subtitle font-semibold">숫자 클릭 게임</h1>
 
-        <nav role="tablist" className="flex justify-center gap-2">
+        <nav role="tablist" className="absolute left-1/2 flex -translate-x-1/2 gap-2">
           {TABS.map(({ key, label }) => (
             <Button
               key={key}
