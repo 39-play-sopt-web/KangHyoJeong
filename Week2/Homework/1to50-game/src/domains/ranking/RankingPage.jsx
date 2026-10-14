@@ -5,7 +5,7 @@ import { clearRecords, getRecords } from './utils/rankingStorage';
 
 export function RankingPage() {
   const [records, setRecords] = useState(() =>
-    getRecords().sort((a, b) => a.playTime - b.playTime),
+    getRecords().sort((a, b) => b.level - a.level || a.playTime - b.playTime),
   );
 
   const handleReset = () => {
