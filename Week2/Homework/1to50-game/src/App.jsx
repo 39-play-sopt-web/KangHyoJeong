@@ -23,7 +23,9 @@ export default function App() {
           total={game.total}
           board={game.board}
           nextNumber={game.nextNumber}
+          result={game.result}
           onCellClick={game.clickCell}
+          onCloseResult={game.closeResult}
         />
       ) : (
         <RankingPage />

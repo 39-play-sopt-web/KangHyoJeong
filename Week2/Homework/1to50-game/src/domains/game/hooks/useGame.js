@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { LEVELS } from '../../../shared/constants/levels';
-import { formatTime } from '../../../shared/utils/formatTime';
 import { saveRecord } from '../../ranking/utils/rankingStorage';
 
 const getSize = (level) => LEVELS.find((item) => item.value === level).size;
@@ -39,6 +38,7 @@ export function useGame() {
   const [nextNumber, setNextNumber] = useState(1);
   const [time, setTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [result, setResult] = useState(null);
   const startTimeRef = useRef(0);
 
   // 1 누르면 타이머 시작, 끝날 때까지 계속 갱신
@@ -57,6 +57,7 @@ export function useGame() {
     setNextNumber(1);
     setTime(0);
     setIsPlaying(false);
+    setResult(null);
   };
 
   // 게임 중이어도 레벨을 바꾸면 새 판으로 초기화
@@ -71,12 +72,7 @@ export function useGame() {
     setIsPlaying(false);
     setTime(playTime);
     saveRecord({ playedAt: new Date().toISOString(), level, playTime });
-
-    // 바로 alert 띄우면 마지막 칸이 안 지워진 채로 떠서 살짝 늦춤
-    setTimeout(() => {
-      alert(`게임 종료! 걸린 시간: ${formatTime(playTime)}초`);
-      reset();
-    }, 50);
+    setResult({ level, playTime });
   };
 
   const clickCell = (index) => {
@@ -109,7 +105,9 @@ export function useGame() {
     board: numbers.board,
     nextNumber,
     time,
+    result,
     changeLevel,
     clickCell,
+    closeResult: () => reset(),
   };
 }
