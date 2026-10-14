@@ -1,13 +1,14 @@
 import { LEVELS } from '../constants/levels';
 import { Button } from './Button';
 import { Select } from './Select';
+import { formatTime } from '../utils/formatTime';
 
 const TABS = [
   { key: 'game', label: '게임' },
   { key: 'ranking', label: '랭킹' },
 ];
 
-export function Header({ tab, onTabChange, level, onLevelChange }) {
+export function Header({ tab, onTabChange, level, onLevelChange, time }) {
   return (
     <header className="sticky top-0 z-10 h-14 bg-surface shadow-header">
       <div className="grid h-full grid-cols-3 items-center px-4">
@@ -36,7 +37,9 @@ export function Header({ tab, onTabChange, level, onLevelChange }) {
                 value={level}
                 onChange={(value) => onLevelChange(Number(value))}
               />
-              {/* 타이머 자리 */}
+              <span className="w-20 text-right text-subtitle font-semibold tabular-nums">
+                {formatTime(time)}
+              </span>
             </>
           )}
         </div>
