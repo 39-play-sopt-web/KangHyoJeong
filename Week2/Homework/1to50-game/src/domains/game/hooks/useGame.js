@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { LEVELS } from '../../../shared/constants/levels';
 import { saveRecord } from '../../ranking/utils/rankingStorage';
 
@@ -36,27 +36,15 @@ export function useGame() {
 
   const [numbers, setNumbers] = useState(() => createGameNumbers(size));
   const [nextNumber, setNextNumber] = useState(1);
-  const [time, setTime] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
   const [result, setResult] = useState(null);
-  const startTimeRef = useRef(0);
-
-  // 1 누르면 타이머 시작, 끝날 때까지 계속 갱신
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    const timerId = setInterval(() => {
-      setTime(Date.now() - startTimeRef.current);
-    }, 10);
-
-    return () => clearInterval(timerId);
-  }, [isPlaying]);
 
   const reset = (targetLevel = level) => {
     setNumbers(createGameNumbers(getSize(targetLevel)));
     setNextNumber(1);
-    setTime(0);
-    setIsPlaying(false);
+    setStartTime(null);
+    setEndTime(null);
     setResult(null);
   };
 
@@ -67,10 +55,10 @@ export function useGame() {
   };
 
   const finish = () => {
-    const playTime = Date.now() - startTimeRef.current;
+    const end = Date.now();
+    const playTime = end - startTime;
 
-    setIsPlaying(false);
-    setTime(playTime);
+    setEndTime(end);
     saveRecord({ playedAt: new Date().toISOString(), level, playTime });
     setResult({ level, playTime });
   };
@@ -79,10 +67,8 @@ export function useGame() {
     const value = numbers.board[index];
     if (value !== nextNumber) return;
 
-    if (value === 1) {
-      startTimeRef.current = Date.now();
-      setIsPlaying(true);
-    }
+    // 1 누르는 순간부터 시간 재기
+    if (value === 1) setStartTime(Date.now());
 
     // 누른 칸엔 다음 숫자 넣고, 남은 숫자 없으면 빈 칸으로
     const [opened = null, ...rest] = numbers.reserve;
@@ -104,7 +90,8 @@ export function useGame() {
     total,
     board: numbers.board,
     nextNumber,
-    time,
+    startTime,
+    endTime,
     result,
     changeLevel,
     clickCell,

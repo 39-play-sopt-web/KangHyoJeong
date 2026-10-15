@@ -15,7 +15,8 @@ export default function App() {
         onTabChange={setTab}
         level={game.level}
         onLevelChange={game.changeLevel}
-        time={game.time}
+        startTime={game.startTime}
+        endTime={game.endTime}
       />
       {tab === 'game' ? (
         <GamePage
