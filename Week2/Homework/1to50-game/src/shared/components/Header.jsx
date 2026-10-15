@@ -1,12 +1,8 @@
 import { LEVELS } from '../constants/levels';
+import { TAB, TABS } from '../constants/tabs';
 import { Button } from './Button';
 import { Select } from './Select';
 import { Timer } from './Timer';
-
-const TABS = [
-  { key: 'game', label: '게임' },
-  { key: 'ranking', label: '랭킹' },
-];
 
 export function Header({
   tab,
@@ -36,7 +32,7 @@ export function Header({
         </nav>
 
         <div className="flex items-center justify-end gap-2">
-          {tab === 'game' && (
+          {tab === TAB.GAME && (
             <>
               <Select
                 aria-label="난이도"

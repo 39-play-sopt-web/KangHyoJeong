@@ -3,9 +3,10 @@ import { Header } from './shared/components/Header';
 import { GamePage } from './domains/game/GamePage';
 import { RankingPage } from './domains/ranking/RankingPage';
 import { useGame } from './domains/game/hooks/useGame';
+import { TAB } from './shared/constants/tabs';
 
 export default function App() {
-  const [tab, setTab] = useState('game');
+  const [tab, setTab] = useState(TAB.GAME);
   const game = useGame();
 
   return (
@@ -18,7 +19,7 @@ export default function App() {
         startTime={game.startTime}
         endTime={game.endTime}
       />
-      {tab === 'game' ? (
+      {tab === TAB.GAME ? (
         <GamePage
           size={game.size}
           total={game.total}
