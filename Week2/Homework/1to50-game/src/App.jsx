@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Header } from './shared/components/Header';
-import { GamePage } from './domains/game/GamePage';
-import { RankingPage } from './domains/ranking/RankingPage';
-import { useGame } from './domains/game/hooks/useGame';
-import { TAB } from './shared/constants/tabs';
+import { Header } from '@/shared/components/Header';
+import { GamePage } from '@/domains/game/GamePage';
+import { RankingPage } from '@/domains/ranking/RankingPage';
+import { useGame } from '@/domains/game/hooks/useGame';
+import { TAB } from '@/shared/constants/tabs';
 
 export default function App() {
   const [tab, setTab] = useState(TAB.GAME);

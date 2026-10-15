@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
-import { Button } from '../../../shared/components/Button';
-import { formatTime } from '../../../shared/utils/formatTime';
+import { Button } from '@/shared/components/Button';
+import { formatTime } from '@/shared/utils/formatTime';
 
 export function ResultModal({ level, playTime, onClose }) {
   return createPortal(

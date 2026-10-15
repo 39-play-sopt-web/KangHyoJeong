@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button } from '../../shared/components/Button';
-import { formatTime } from '../../shared/utils/formatTime';
-import { clearRecords, getRecords } from '../../shared/utils/rankingStorage';
+import { Button } from '@/shared/components/Button';
+import { formatTime } from '@/shared/utils/formatTime';
+import { clearRecords, getRecords } from '@/shared/utils/rankingStorage';
 
 export function RankingPage() {
   const [records, setRecords] = useState(() =>

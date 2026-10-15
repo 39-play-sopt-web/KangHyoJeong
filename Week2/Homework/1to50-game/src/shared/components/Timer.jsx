@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatTime } from '../utils/formatTime';
+import { formatTime } from '@/shared/utils/formatTime';
 
 export function Timer({ startTime, endTime }) {
   const [now, setNow] = useState(() => Date.now());

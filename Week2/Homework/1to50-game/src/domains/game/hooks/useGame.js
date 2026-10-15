@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { LEVELS } from '../../../shared/constants/levels';
-import { saveRecord } from '../../../shared/utils/rankingStorage';
+import { LEVELS } from '@/shared/constants/levels';
+import { saveRecord } from '@/shared/utils/rankingStorage';
 
 const getSize = (level) => LEVELS.find((item) => item.value === level).size;
 

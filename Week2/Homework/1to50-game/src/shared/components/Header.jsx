@@ -1,5 +1,5 @@
-import { LEVELS } from '../constants/levels';
-import { TAB, TABS } from '../constants/tabs';
+import { LEVELS } from '@/shared/constants/levels';
+import { TAB, TABS } from '@/shared/constants/tabs';
 import { Button } from './Button';
 import { Select } from './Select';
 import { Timer } from './Timer';
