@@ -9,10 +9,7 @@ export function NumberCell({ value, textClassName, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex aspect-square w-full items-center justify-center
-        rounded-2xl border border-border bg-surface shadow-card animate-flash
-        ${textClassName} font-semibold tabular-nums
-        cursor-pointer transition-colors duration-300 ease-out hover:bg-border/30`}
+      className={`flex aspect-square w-full animate-flash items-center justify-center rounded-2xl border border-border bg-surface shadow-card ${textClassName} cursor-pointer font-semibold tabular-nums transition-colors duration-300 ease-out hover:bg-border/30`}
     >
       {value}
     </button>

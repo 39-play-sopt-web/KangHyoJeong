@@ -23,9 +23,7 @@ export function RankingPage() {
       </div>
 
       {records.length === 0 ? (
-        <p className="py-20 text-center text-body text-foreground-muted">
-          아직 기록이 없어요.
-        </p>
+        <p className="py-20 text-center text-body text-foreground-muted">아직 기록이 없어요.</p>
       ) : (
         <table className="w-full overflow-hidden rounded-lg bg-surface shadow-card">
           <thead className="border-b border-border bg-primary/40 text-body">

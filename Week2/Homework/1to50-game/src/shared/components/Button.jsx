@@ -9,11 +9,7 @@ export function Button({ variant = 'default', fullWidth = false, ...props }) {
     <button
       type="button"
       {...props}
-      className={`inline-flex items-center justify-center gap-2.5
-        rounded-lg border px-3 py-2
-        text-sm font-medium cursor-pointer transition-colors duration-300 ease-out
-        ${VARIANTS[variant]}
-        ${fullWidth ? 'w-full' : ''}`}
+      className={`inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors duration-300 ease-out ${VARIANTS[variant]} ${fullWidth ? 'w-full' : ''}`}
     />
   );
 }

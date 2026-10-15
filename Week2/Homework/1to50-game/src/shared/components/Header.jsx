@@ -4,14 +4,7 @@ import { Button } from './Button';
 import { Select } from './Select';
 import { Timer } from './Timer';
 
-export function Header({
-  tab,
-  onTabChange,
-  level,
-  onLevelChange,
-  startTime,
-  endTime,
-}) {
+export function Header({ tab, onTabChange, level, onLevelChange, startTime, endTime }) {
   return (
     <header className="sticky top-0 z-10 h-14 bg-surface shadow-header">
       <div className="relative flex h-full items-center justify-between px-4">
