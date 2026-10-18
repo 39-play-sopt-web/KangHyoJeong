@@ -1,0 +1,48 @@
+/* 가로 스크롤 영역 (스크롤바는 숨김) */
+.things-i-like__gallery {
+    display: flex;
+    overflow-x: auto;
+    padding: 16px 0;
+    scrollbar-width: none;
+}
+
+.things-i-like__gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.things-i-like__list {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    padding-right: 16px;
+    animation: things-i-like-scroll 40s linear infinite;
+}
+
+/* hover로 배너가 멈췄을 때만 스냅 적용: 움직이는 동안 켜 두면 브라우저가 스크롤 위치를 계속 되돌림 */
+.things-i-like__gallery:hover {
+    scroll-snap-type: x mandatory;
+}
+
+.things-i-like__gallery:hover .things-i-like__list {
+    animation-play-state: paused;
+}
+
+.things-i-like__list img {
+    width: auto;
+    height: 200px;
+    max-width: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.things-i-like__list img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes things-i-like-scroll {
+    to {
+        transform: translateX(-100%);
+    }
+}
