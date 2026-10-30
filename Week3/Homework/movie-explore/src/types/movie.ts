@@ -37,6 +37,8 @@ export interface MovieDetail {
   release_date: string;
   runtime: number | null;
   vote_average: number;
+  vote_count: number;
+  status: string;
   genres: Genre[];
   overview: string;
   original_title: string;
