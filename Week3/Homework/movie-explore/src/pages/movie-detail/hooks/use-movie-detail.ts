@@ -4,10 +4,15 @@ import type { MovieDetail } from '@/types/movie.ts';
 
 export const useMovieDetail = (movieId: string) => {
   const [movie, setMovie] = useState<MovieDetail | null>(null);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    getMovieDetail(movieId).then((data) => setMovie(data));
+    getMovieDetail(movieId)
+      .then((data) => setMovie(data))
+      .catch(() => setIsError(true));
   }, [movieId]);
 
-  return movie;
+  const isLoading = !movie && !isError;
+
+  return { movie, isLoading, isError };
 };

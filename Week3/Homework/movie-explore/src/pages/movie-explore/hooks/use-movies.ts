@@ -7,14 +7,17 @@ export const useMovies = ({ minRating, maxRating }: RatingFilter) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const isFetchingRef = useRef(false);
 
   const hasNextPage = page < totalPages;
 
   const fetchNextPage = useCallback(() => {
-    if (isFetchingRef.current || !hasNextPage) return;
+    if (isFetchingRef.current || !hasNextPage || isError) return;
 
     isFetchingRef.current = true;
+    setIsLoading(true);
     const nextPage = page + 1;
 
     getMovies({ page: nextPage, minRating, maxRating })
@@ -23,10 +26,14 @@ export const useMovies = ({ minRating, maxRating }: RatingFilter) => {
         setPage(nextPage);
         setTotalPages(data.total_pages);
       })
+      .catch(() => {
+        setIsError(true);
+      })
       .finally(() => {
         isFetchingRef.current = false;
+        setIsLoading(false);
       });
-  }, [hasNextPage, page, minRating, maxRating]);
+  }, [hasNextPage, isError, page, minRating, maxRating]);
 
-  return { movies, hasNextPage, fetchNextPage };
+  return { movies, hasNextPage, isLoading, isError, fetchNextPage };
 };
