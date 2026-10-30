@@ -1,5 +1,5 @@
 import { client } from '@/apis/client.ts';
-import type { MovieListResponse } from '@/types/movie.ts';
+import type { MovieDetail, MovieListResponse } from '@/types/movie.ts';
 
 interface GetMoviesParams {
   page?: number;
@@ -17,3 +17,6 @@ export const getMovies = ({ page = 1, minRating, maxRating }: GetMoviesParams = 
       },
     })
     .json<MovieListResponse>();
+
+export const getMovieDetail = (movieId: string) =>
+  client.get(`movie/${movieId}`).json<MovieDetail>();
