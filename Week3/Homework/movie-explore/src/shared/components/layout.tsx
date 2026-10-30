@@ -5,7 +5,9 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <main className="mx-auto box-content max-w-5xl px-6">
+        <Outlet />
+      </main>
     </>
   );
 }
