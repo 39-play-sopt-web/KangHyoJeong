@@ -17,7 +17,7 @@ export function GameBoard({ size, board, onCellClick }) {
           key={`${index}-${value}`}
           value={value}
           textClassName={CELL_TEXT[size]}
-          onClick={() => onCellClick?.(index)}
+          onClick={() => onCellClick(index)}
         />
       ))}
     </div>
