@@ -1,7 +1,12 @@
 const STORAGE_KEY = 'rankings';
 
 export function getRecords() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+  try {
+    const records = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return Array.isArray(records) ? records : [];
+  } catch {
+    return [];
+  }
 }
 
 export function saveRecord(record) {
