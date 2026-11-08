@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { generatePath, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import { useCreatePost } from '@/domains/post/hooks/useCreatePost';
 import Button from '@/shared/components/Button';
@@ -20,8 +20,10 @@ function PostWritePage() {
     create(
       { title: title.trim(), content: content.trim(), author: author.trim() },
       {
-        onSuccess: (post) =>
-          navigate(generatePath(ROUTES.POST_DETAIL, { postId: String(post.id) })),
+        onSuccess: () => {
+          alert('게시글이 작성되었습니다.');
+          navigate(ROUTES.POST_LIST);
+        },
         onError: (error) => alert(error.message),
       },
     );

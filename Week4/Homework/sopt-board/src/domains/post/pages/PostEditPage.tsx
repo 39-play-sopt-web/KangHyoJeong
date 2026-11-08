@@ -21,10 +21,12 @@ function PostEditForm({ post }: { post: PostDetail }) {
     update(
       { postId: post.id, body: { title: title.trim(), content: content.trim() } },
       {
-        onSuccess: () =>
+        onSuccess: () => {
+          alert('게시글이 수정되었습니다.');
           navigate(generatePath(ROUTES.POST_DETAIL, { postId: String(post.id) }), {
             replace: true,
-          }),
+          });
+        },
         onError: (error) => alert(error.message),
       },
     );
