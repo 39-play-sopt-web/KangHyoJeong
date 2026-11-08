@@ -27,3 +27,7 @@ export const updatePost = async ({ postId, body }: { postId: number; body: Updat
   const { data } = await api.put(`posts/${postId}`, { json: body }).json<ApiResponse<PostDetail>>();
   return data;
 };
+
+export const deletePost = async (postId: number) => {
+  await api.delete(`posts/${postId}`);
+};
