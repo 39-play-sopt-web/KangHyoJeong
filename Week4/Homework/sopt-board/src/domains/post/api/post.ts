@@ -1,4 +1,9 @@
-import type { GetPostsParams, PostDetail, PostSlice } from '@/domains/post/types';
+import type {
+  CreatePostRequest,
+  GetPostsParams,
+  PostDetail,
+  PostSlice,
+} from '@/domains/post/types';
 import { api } from '@/shared/api/instance';
 import type { ApiResponse } from '@/shared/types/apiResponse';
 
@@ -9,5 +14,10 @@ export const getPosts = async (params: GetPostsParams) => {
 
 export const getPost = async (postId: number) => {
   const { data } = await api.get(`posts/${postId}`).json<ApiResponse<PostDetail>>();
+  return data;
+};
+
+export const createPost = async (body: CreatePostRequest) => {
+  const { data } = await api.post('posts', { json: body }).json<ApiResponse<PostDetail>>();
   return data;
 };

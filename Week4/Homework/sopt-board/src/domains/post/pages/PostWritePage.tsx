@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { generatePath, useNavigate } from 'react-router';
 
+import { useCreatePost } from '@/domains/post/hooks/useCreatePost';
 import Button from '@/shared/components/Button';
 import Input from '@/shared/components/Input';
 import Textarea from '@/shared/components/Textarea';
@@ -11,8 +12,20 @@ function PostWritePage() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
+  const { mutate: create, isPending } = useCreatePost();
 
   const isValid = title.trim() && content.trim() && author.trim();
+
+  const handleCreate = () => {
+    create(
+      { title: title.trim(), content: content.trim(), author: author.trim() },
+      {
+        onSuccess: (post) =>
+          navigate(generatePath(ROUTES.POST_DETAIL, { postId: String(post.id) })),
+        onError: (error) => alert(error.message),
+      },
+    );
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -34,7 +47,9 @@ function PostWritePage() {
         <Button variant="secondary" onClick={() => navigate(ROUTES.POST_LIST)}>
           목록으로
         </Button>
-        <Button disabled={!isValid}>작성하기</Button>
+        <Button onClick={handleCreate} disabled={!isValid || isPending}>
+          작성하기
+        </Button>
       </div>
     </div>
   );
