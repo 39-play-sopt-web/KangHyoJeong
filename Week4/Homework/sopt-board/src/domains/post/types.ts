@@ -1,4 +1,6 @@
-import type { components } from '@/shared/types/api';
+import type { components, operations } from '@/shared/types/api';
 
 export type PostSummary = components['schemas']['PostSummaryResponse'];
 export type PostDetail = components['schemas']['PostDetailResponse'];
+export type PostSlice = components['schemas']['PostSliceResponse'];
+export type GetPostsParams = NonNullable<operations['getPosts']['parameters']['query']>;
