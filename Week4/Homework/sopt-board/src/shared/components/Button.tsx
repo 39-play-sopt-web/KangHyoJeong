@@ -7,7 +7,8 @@ interface ButtonProps extends ComponentProps<'button'> {
 }
 
 const VARIANT_CLASS_NAME: Record<ButtonVariant, string> = {
-  primary: 'bg-(image:--gradient-primary) text-on-primary enabled:hover:opacity-85',
+  primary:
+    'relative isolate bg-primary-dark text-on-primary before:absolute before:inset-0 before:-z-10 before:rounded-lg before:bg-(image:--gradient-primary) before:transition-opacity enabled:hover:before:opacity-0',
   secondary:
     'border border-foreground-muted text-foreground-muted enabled:hover:bg-foreground-muted/10',
   outline: 'border border-foreground text-foreground enabled:hover:bg-foreground/10',
