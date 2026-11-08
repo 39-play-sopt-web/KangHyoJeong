@@ -1,16 +1,8 @@
-import { Navigate, Outlet } from 'react-router';
+import { Outlet } from 'react-router';
 
 import Header from '@/shared/components/Header';
-import { ROUTES } from '@/shared/constants/routes';
-import { STORAGE_KEYS } from '@/shared/constants/storage';
 
 function ProtectedLayout() {
-  const authorizationCode = localStorage.getItem(STORAGE_KEYS.AUTHORIZATION_CODE);
-
-  if (!authorizationCode) {
-    return <Navigate to={ROUTES.MEMBER_CODE} replace />;
-  }
-
   return (
     <>
       <Header />
