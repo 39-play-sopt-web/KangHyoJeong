@@ -3,6 +3,7 @@ import type {
   GetPostsParams,
   PostDetail,
   PostSlice,
+  UpdatePostRequest,
 } from '@/domains/post/types';
 import { api } from '@/shared/api/instance';
 import type { ApiResponse } from '@/shared/types/apiResponse';
@@ -19,5 +20,10 @@ export const getPost = async (postId: number) => {
 
 export const createPost = async (body: CreatePostRequest) => {
   const { data } = await api.post('posts', { json: body }).json<ApiResponse<PostDetail>>();
+  return data;
+};
+
+export const updatePost = async ({ postId, body }: { postId: number; body: UpdatePostRequest }) => {
+  const { data } = await api.put(`posts/${postId}`, { json: body }).json<ApiResponse<PostDetail>>();
   return data;
 };

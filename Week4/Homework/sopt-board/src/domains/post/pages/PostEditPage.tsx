@@ -1,25 +1,37 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { generatePath, useNavigate, useParams } from 'react-router';
 
+import { usePostDetail } from '@/domains/post/hooks/usePostDetail';
+import { useUpdatePost } from '@/domains/post/hooks/useUpdatePost';
+import type { PostDetail } from '@/domains/post/types';
 import Button from '@/shared/components/Button';
 import Input from '@/shared/components/Input';
 import Textarea from '@/shared/components/Textarea';
+import { ROUTES } from '@/shared/constants/routes';
 
-const MOCK_POST = {
-  title: '제목영역입니다.',
-  content: '내용을 입력하는 설명을 입력하는 본문영역입니다.',
-};
-
-function PostEditPage() {
+function PostEditForm({ post }: { post: PostDetail }) {
   const navigate = useNavigate();
-  const [title, setTitle] = useState(MOCK_POST.title);
-  const [content, setContent] = useState(MOCK_POST.content);
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+  const { mutate: update, isPending } = useUpdatePost();
 
   const isValid = title.trim() && content.trim();
 
+  const handleUpdate = () => {
+    update(
+      { postId: post.id, body: { title: title.trim(), content: content.trim() } },
+      {
+        onSuccess: () =>
+          navigate(generatePath(ROUTES.POST_DETAIL, { postId: String(post.id) }), {
+            replace: true,
+          }),
+        onError: (error) => alert(error.message),
+      },
+    );
+  };
+
   return (
-    <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold">글 수정하기</h1>
+    <>
       <Input label="제목" maxLength={50} value={title} onChange={(e) => setTitle(e.target.value)} />
       <Textarea
         label="본문"
@@ -31,8 +43,24 @@ function PostEditPage() {
         <Button variant="secondary" onClick={() => navigate(-1)}>
           취소
         </Button>
-        <Button disabled={!isValid}>수정완료</Button>
+        <Button onClick={handleUpdate} disabled={!isValid || isPending}>
+          수정완료
+        </Button>
       </div>
+    </>
+  );
+}
+
+function PostEditPage() {
+  const { postId } = useParams();
+  const { data: post, isPending, isError, error } = usePostDetail(Number(postId));
+
+  return (
+    <div className="flex flex-col gap-6">
+      <h1 className="text-3xl font-bold">글 수정하기</h1>
+      {isPending && <p className="text-center text-foreground-muted">불러오는 중...</p>}
+      {isError && <p className="text-center text-danger">{error.message}</p>}
+      {post && <PostEditForm post={post} />}
     </div>
   );
 }
